@@ -12,6 +12,7 @@ body {
   font-family: "Gilroy", sans-serif;
   font-weight: 700;
   background-color: $bgMain;
+  color: $colorWhite;
 }
 
 html,
@@ -32,6 +33,14 @@ body {
 
 [class*="__container"] {
   margin: 0 auto;
-  max-width: 1230px;
+  max-width: 1490px;
   padding: 0 15px;
+}
+
+// UI KIT//
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
 }
