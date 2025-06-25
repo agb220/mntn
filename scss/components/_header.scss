@@ -1,0 +1,246 @@
+@use "../_index" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: toRem(40) 0;
+    gap: toRem(10);
+
+    @media (min-width: 48em) {
+      padding: toRem(66) 0;
+    }
+  }
+
+  &__logo {
+    aspect-ratio: 108 / 24;
+    max-width: toRem(108);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 6;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .icon-menu {
+    display: block;
+    width: 26px;
+    height: 20px;
+    position: relative;
+    z-index: 6;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    span,
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $colorWhite;
+      left: 0;
+      transition: 0.3s ease;
+    }
+
+    span {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    body.menu-open & {
+      span {
+        width: 0;
+      }
+
+      &::before {
+        transform: rotate(45deg) translateY(-2px);
+        top: 50%;
+      }
+
+      &::after {
+        transform: rotate(-45deg) translateY(1px);
+        bottom: 50%;
+      }
+    }
+  }
+
+  .menu {
+    &__body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: toRem(25);
+      position: fixed;
+      top: toRem(91);
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - toRem(91));
+      background-color: $bgMain;
+      padding: toRem(50) toRem(20);
+      flex-direction: column;
+      transition: left 0.3s ease;
+      z-index: 999;
+      overflow: auto;
+
+      body.menu-open & {
+        left: 0;
+        align-items: flex-start;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &__body::before {
+      content: "";
+      position: fixed;
+      top: toRem(91);
+      left: -100%;
+      width: 100%;
+      height: toRem(91);
+      z-index: 1;
+      transition: all 0.3s;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(20);
+    }
+
+    &__item {
+      padding: toRem(10) 0;
+
+      @media (min-width: 48em) {
+        padding: 0 0;
+        font-size: toRem(15);
+      }
+
+      a {
+        position: relative;
+        color: inherit;
+        text-decoration: none;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          width: 0%;
+          height: 2px;
+          background-color: $colorAccent;
+          transform: translateX(-50%);
+          transition: width 0.3s ease;
+        }
+
+        @media (any-hover: hover), (pointer: fine) {
+          &:hover {
+            color: $colorAccent;
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__active {
+    display: flex;
+    align-items: center;
+    gap: toRem(34);
+
+    @media (min-width: 32em) {
+      gap: toRem(27);
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: toRem(8);
+    cursor: pointer;
+    transition: color 0.3s;
+
+    span {
+      font-size: toRem(17);
+    }
+
+    .icon {
+      fill: currentColor;
+      transition: fill 0.3s;
+    }
+
+    @media (any-hover: hover), (pointer: fine) {
+      &:hover {
+        color: $colorAccent;
+
+        .icon {
+          fill: $colorAccent;
+        }
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+    backdrop-filter: blur(113.65px);
+    background-color: $bgMain;
+    z-index: -1;
+  }
+
+  @media (min-width: 48em) {
+    .icon-menu {
+      display: none;
+    }
+
+    .menu {
+      &__body {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        flex-direction: row;
+        transition: none;
+        overflow: hidden;
+        border: none;
+        box-shadow: none;
+      }
+
+      &__list {
+        flex-direction: row;
+        gap: toRem(49);
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
