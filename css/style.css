@@ -116,6 +116,11 @@ label {
   right: 0;
   z-index: 5;
 }
+.header__wrapper {
+  margin: 0 auto;
+  max-width: 1790px;
+  padding: 0 15px;
+}
 .header__body {
   display: flex;
   align-items: center;
