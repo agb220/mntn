@@ -37,6 +37,16 @@ body {
   padding: 0 15px;
 }
 
+// .page-margin
+
+.page-margin {
+  margin: toRem(105) 0 0 0;
+
+  @media (min-width: 48em) {
+    margin: toRem(160) 0 0 0;
+  }
+}
+
 // UI KIT//
 
 .icon {
