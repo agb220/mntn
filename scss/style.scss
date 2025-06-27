@@ -40,11 +40,11 @@ body {
 // .page-margin
 
 .page-margin {
-  margin: toRem(105) 0 0 0;
+  // margin: toRem(105) 0 0 0;
 
-  @media (min-width: 48em) {
-    margin: toRem(160) 0 0 0;
-  }
+  // @media (min-width: 48em) {
+  //   margin: toRem(160) 0 0 0;
+  // }
 }
 
 // UI KIT//
@@ -53,4 +53,281 @@ body {
   width: 24px;
   height: 24px;
   fill: white;
+
+  @media (any-hover: hover), (pointer: fine) {
+    &:hover {
+      fill: $colorAccent;
+    }
+  }
+}
+
+// HERO SECTION //
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+
+  // .hero__body
+
+  &__body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: 0.4s;
+      z-index: 2;
+      background: linear-gradient(
+        330deg,
+        rgba(11, 29, 38, 0) 31.06%,
+        #0b1d26 108.93%
+      );
+      pointer-events: none;
+    }
+  }
+
+  // .hero__container
+
+  &__container {
+    position: relative;
+    z-index: 5;
+  }
+
+  // .hero__content
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content-block {
+    height: auto;
+    padding: toRem(0) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: toRem(20);
+    min-width: 100%;
+
+    @media (min-width: 35em) {
+      padding: toRem(100) 0;
+    }
+
+    // .content-block__content
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: toRem(32);
+      flex: 0 1 70%;
+    }
+  }
+
+  // .hero__label
+
+  &__label {
+    font-size: toRem(12);
+    color: $colorAccent;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 35em) {
+      font-weight: 800;
+      letter-spacing: 6px;
+      font-size: toRem(18);
+    }
+
+    &::before {
+      content: "";
+      flex: 0 0 toRem(15);
+      height: toRem(2);
+      margin: 0 toRem(10) 0 0;
+      background-color: $colorAccent;
+
+      @media (min-width: 35em) {
+        flex: 0 0 toRem(77);
+        margin: 0 toRem(30) 0 0;
+      }
+    }
+  }
+
+  // .hero__title
+
+  &__title {
+    font-family: "Chronicle Display";
+    font-size: toRem(28);
+    font-weight: 600;
+    line-height: 1.13;
+    text-transform: capitalize;
+
+    @media (min-width: 35em) {
+      font-size: toRem(56);
+    }
+
+    @media (min-width: 48em) {
+      font-size: toRem(88);
+    }
+  }
+
+  // .hero__images
+
+  &__images {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    z-index: 1;
+  }
+}
+.follow-us {
+  display: flex;
+  align-items: center;
+  gap: toRem(24);
+  flex-direction: column;
+
+  // .follow-us__title
+
+  &__title {
+    writing-mode: vertical-rl;
+    font-size: toRem(14);
+
+    @media (min-width: 35em) {
+      font-size: toRem(18);
+    }
+  }
+
+  // .follow-us__list
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: toRem(24);
+    flex-direction: column;
+  }
+
+  // .follow-us__item
+
+  &__item {
+  }
+
+  .icon {
+  }
+}
+.button {
+  display: block;
+  align-self: self-start;
+  display: flex;
+  align-items: center;
+  gap: toRem(20);
+  transition: color 0.3s;
+
+  @media (any-hover: hover), (pointer: fine) {
+    &:hover {
+      color: $colorAccent;
+
+      .icon {
+        fill: $colorAccent;
+      }
+    }
+  }
+}
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(15);
+
+  @media (min-width: 35em) {
+    gap: toRem(20);
+  }
+
+  // .slider__item
+
+  &__item {
+    text-align: right;
+    padding: toRem(20) toRem(20) toRem(20) 0;
+    border-right: 1px solid $colorWhite;
+    font-size: toRem(14);
+
+    @media (min-width: 35em) {
+      font-size: toRem(18);
+      padding: toRem(15) toRem(15) toRem(15) 0;
+    }
+  }
+}
+.images-parallax {
+  // .images-parallax__item
+
+  &__item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  // .images-parallax__clouds
+
+  &__clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: url(../images/hero/clouds.jpg) top / cover no-repeat;
+    top: 0;
+  }
+
+  // .images-parallax__mountains
+
+  &__mountains {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: url(../images/hero/mountains.png) top / cover no-repeat;
+    top: 15%;
+    z-index: 2;
+  }
+
+  // .images-parallax__man
+
+  &__man {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background: url(../images/hero/man.png) top / cover no-repeat;
+    top: 45%;
+    z-index: 3;
+
+    @media (max-aspect-ratio: 3/2) {
+      background-position: 20% top;
+    }
+  }
+}
+
+// text content //
+
+.text-content {
+  position: relative;
+
+  height: 100%;
+  padding: 100px 0 100px 0;
+  background-color: $bgMain;
 }
