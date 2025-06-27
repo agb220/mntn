@@ -17,12 +17,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: toRem(40) 0;
+    padding: toRem(25) 0;
     gap: toRem(10);
 
-    @media (min-width: 48em) {
-      padding: toRem(66) 0;
-    }
+    // @media (min-width: 48em) {
+    //   padding: toRem(66) 0;
+    // }
   }
 
   &__logo {
@@ -202,9 +202,9 @@
       &:hover {
         color: $colorAccent;
 
-        .icon {
-          fill: $colorAccent;
-        }
+        // .icon {
+        //   fill: $colorAccent;
+        // }
       }
     }
   }
@@ -217,8 +217,7 @@
     top: 0;
     left: 0;
     transition: 0.4s;
-    backdrop-filter: blur(113.65px);
-    background-color: $bgMain;
+    backdrop-filter: blur(5px);
     z-index: -1;
   }
 
