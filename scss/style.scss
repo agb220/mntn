@@ -331,12 +331,12 @@ body {
 .card-content {
   position: relative;
   height: 100%;
-  padding: toRem(140) 0 toRem(200) 0;
+  padding: toRem(30) 0 toRem(200) 0;
   background-color: $bgMain;
   overflow: hidden;
 
   @media (min-width: 48em) {
-    padding: toRem(240) 0 toRem(200) 0;
+    padding: toRem(100) 0 toRem(100) 0;
   }
 
   &::before {
@@ -523,6 +523,29 @@ body {
     }
   }
 }
+
+// .card-content--padding-top
+
+.card-content--padding-top {
+  padding: toRem(140) 0 toRem(200) 0;
+  background-color: $bgMain;
+  overflow: hidden;
+
+  @media (min-width: 48em) {
+    padding: toRem(240) 0 toRem(200) 0;
+  }
+}
+
+// .card-content__wrapper--reverse
+
+.card-content__wrapper--reverse {
+  flex-direction: column-reverse;
+
+  @media (min-width: 48em) {
+    flex-direction: row;
+  }
+}
+
 .button-link {
   display: flex;
   align-items: center;

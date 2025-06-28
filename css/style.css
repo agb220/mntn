@@ -734,13 +734,13 @@ body {
 .card-content {
   position: relative;
   height: 100%;
-  padding: 8.75rem 0 12.5rem 0;
+  padding: 1.875rem 0 12.5rem 0;
   background-color: #0b1d26;
   overflow: hidden;
 }
 @media (min-width: 48em) {
   .card-content {
-    padding: 15rem 0 12.5rem 0;
+    padding: 6.25rem 0 6.25rem 0;
   }
 }
 .card-content::before {
@@ -901,6 +901,26 @@ body {
   .card-content__image img {
     -o-object-position: center;
        object-position: center;
+  }
+}
+
+.card-content--padding-top {
+  padding: 8.75rem 0 12.5rem 0;
+  background-color: #0b1d26;
+  overflow: hidden;
+}
+@media (min-width: 48em) {
+  .card-content--padding-top {
+    padding: 15rem 0 12.5rem 0;
+  }
+}
+
+.card-content__wrapper--reverse {
+  flex-direction: column-reverse;
+}
+@media (min-width: 48em) {
+  .card-content__wrapper--reverse {
+    flex-direction: row;
   }
 }
 
