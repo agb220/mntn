@@ -155,3 +155,55 @@ document
     ".card-content__text, .card-content__image, .card-content__number"
   )
   .forEach((el) => observer.observe(el));
+
+// SCROLL DOWN
+
+function scrollDown() {
+  const btn = document.getElementById("scrollBtn");
+
+  btn.addEventListener("click", () => {
+    const section = document.getElementById("step-01");
+    section.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  scrollDown();
+});
+
+// SLIDER
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = [
+    { id: "start", item: 0 },
+    { id: "step-01", item: 1 },
+    { id: "step-02", item: 2 },
+    { id: "step-03", item: 3 },
+  ];
+
+  const sliderItems = document.querySelectorAll(".slider__item");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.5,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = sections.findIndex((s) => s.id === entry.target.id);
+
+        sliderItems.forEach((item) => item.classList.remove("active"));
+        if (sliderItems[index]) {
+          sliderItems[index].classList.add("active");
+        }
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((s) => {
+    const section = document.getElementById(s.id);
+    if (section) observer.observe(section);
+  });
+});

@@ -14,7 +14,7 @@
     <div class="wrapper">
       <div id="header"></div>
       <main class="page-margin">
-        <section class="hero">
+        <section class="hero" id="start">
           <div class="hero__body">
             <div class="hero__container content">
               <div class="content-block">
@@ -42,7 +42,7 @@
                   <h1 class="hero__title">
                     Be prepared for the Mountains and beyond!
                   </h1>
-                  <button class="button">
+                  <button class="button" id="scrollBtn">
                     scroll down
                     <svg class="icon">
                       <use href="#icon-arrow-down"></use>
@@ -70,7 +70,7 @@
             </div>
           </div>
         </section>
-        <section class="card-content card-content--padding-top">
+        <section class="card-content card-content--padding-top" id="step-01">
           <div class="card-content__container">
             <div class="card-content__wrapper">
               <div class="card-content__content">
@@ -105,18 +105,26 @@
             </div>
           </div>
         </section>
-        <section class="card-content">
+        <section class="card-content" id="step-02">
           <div class="card-content__container">
             <div class="card-content__wrapper card-content__wrapper--reverse">
-              <div class="card-content__image">
+              <div
+                class="card-content__image card-content__image--fix-animation"
+              >
                 <img
                   src="./images/block-content/card2.avif"
                   alt="Picking the right Hiking Gear!"
                 />
               </div>
               <div class="card-content__content">
-                <div class="card-content__number">02</div>
-                <div class="card-content__text">
+                <div
+                  class="card-content__number card-content__number--fix-animation"
+                >
+                  02
+                </div>
+                <div
+                  class="card-content__text card-content__text--fix-animation"
+                >
                   <div class="card-content__label">Hiking Essentials</div>
                   <h2 class="card-content__title">
                     Picking the right Hiking Gear!
@@ -140,7 +148,7 @@
             </div>
           </div>
         </section>
-        <section class="card-content">
+        <section class="card-content" id="step-03">
           <div class="card-content__container">
             <div class="card-content__wrapper">
               <div class="card-content__content">

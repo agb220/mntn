@@ -268,10 +268,16 @@ body {
     padding: toRem(20) toRem(20) toRem(20) 0;
     border-right: 1px solid $colorWhite;
     font-size: toRem(14);
+    transition: border-right-color 0.3s, color 0.3s;
 
     @media (min-width: 35em) {
       font-size: toRem(18);
       padding: toRem(15) toRem(15) toRem(15) 0;
+    }
+
+    &.active {
+      border-right-color: $colorAccent;
+      color: $colorAccent;
     }
   }
 }
@@ -414,6 +420,15 @@ body {
     }
   }
 
+  //.card-content__number--fix-animationn
+
+  &__number--fix-animation {
+    &.visible {
+      animation: slideRightOpacity 0.8s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+  }
+
   // .card-content__text
 
   &__text {
@@ -430,6 +445,15 @@ body {
 
     @media (min-width: 48em) {
       max-width: toRem(632);
+    }
+  }
+
+  //.card-content__text--fix-animation
+
+  &__text--fix-animation {
+    &.visible {
+      animation: slideInRight 0.8s ease-out forwards;
+      animation-delay: 0.2s;
     }
   }
 
@@ -516,10 +540,26 @@ body {
       width: 100%;
       object-fit: cover;
       object-position: bottom;
+      transition: transform 0.3s;
+
+      @media (any-hover: hover), (pointer: fine) {
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
 
       @media (min-width: 48em) {
         object-position: center;
       }
+    }
+  }
+
+  //.card-content__image--fix-animation
+
+  &__image--fix-animation {
+    &.visible {
+      animation: slideInLeft 0.8s ease-out forwards;
+      animation-delay: 0.8s;
     }
   }
 }
@@ -588,6 +628,17 @@ body {
 @keyframes slideInLeftOpacity {
   0% {
     transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.1;
+  }
+}
+
+@keyframes slideRightOpacity {
+  0% {
+    transform: translateX(100px);
     opacity: 0;
   }
   100% {
