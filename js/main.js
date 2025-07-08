@@ -2,18 +2,18 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   //add header component
-  fetch("/components/header.html")
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("header").innerHTML = data;
-    });
+  // fetch("/components/header.html")
+  //   .then((res) => res.text())
+  //   .then((data) => {
+  //     document.getElementById("header").innerHTML = data;
+  //   });
 
   //add footer component
-  fetch("/components/footer.html")
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("footer").innerHTML = data;
-    });
+  // fetch("/components/footer.html")
+  //   .then((res) => res.text())
+  //   .then((data) => {
+  //     document.getElementById("footer").innerHTML = data;
+  //   });
 
   // add icons SVG-спрайт
   fetch("icons/icons-sprite.svg")
