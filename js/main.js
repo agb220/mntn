@@ -1,51 +1,42 @@
-"use strick";
-
-//add header component
+"use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
+  //add header component
   fetch("/components/header.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("header").innerHTML = data;
     });
-});
 
-//add footer component
-
-document.addEventListener("DOMContentLoaded", () => {
+  //add footer component
   fetch("/components/footer.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("footer").innerHTML = data;
     });
-});
 
-// add icons SVG-спрайт
+  // add icons SVG-спрайт
+  fetch("icons/icons-sprite.svg")
+    .then((res) => res.text())
+    .then((data) => {
+      const div = document.createElement("div");
+      div.style.display = "none";
+      div.innerHTML = data;
+      document.body.prepend(div);
+    });
 
-fetch("icons/icons-sprite.svg")
-  .then((res) => res.text())
-  .then((data) => {
-    const div = document.createElement("div");
-    div.style.display = "none";
-    div.innerHTML = data;
-    document.body.prepend(div);
-  });
+  // open menu-burger
+  document.addEventListener("click", documentActions);
 
-// open menu-burger
+  function documentActions(e) {
+    const targetElement = e.target;
 
-document.addEventListener("click", documentActions);
-
-function documentActions(e) {
-  const targetElement = e.target;
-
-  if (targetElement.closest(".icon-menu")) {
-    document.body.classList.toggle("menu-open");
+    if (targetElement.closest(".icon-menu")) {
+      document.body.classList.toggle("menu-open");
+    }
   }
-}
 
-// HERO PARALLAX //
-
-window.onload = function () {
+  // HERO PARALLAX //
   const parallax = document.querySelector(".hero");
 
   if (parallax) {
@@ -103,7 +94,6 @@ window.onload = function () {
     });
 
     // parallax on scrolling
-
     let thersholdSets = [];
     for (let i = 0; i <= 1.0; i += 0.005) {
       thersholdSets.push(i);
@@ -133,47 +123,40 @@ window.onload = function () {
       }%)`;
     }
   }
-};
 
-// ANIMATION CONTENT CARD //
+  // ANIMATION CONTENT CARD //
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    }
+  );
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
+  document
+    .querySelectorAll(
+      ".card-content__text, .card-content__image, .card-content__number"
+    )
+    .forEach((el) => observer.observe(el));
+
+  // SCROLL DOWN
+  function scrollDown() {
+    const btn = document.getElementById("scrollBtn");
+
+    btn.addEventListener("click", () => {
+      const section = document.getElementById("step-01");
+      section.scrollIntoView({ behavior: "smooth" });
     });
-  },
-  {
-    threshold: 0.3,
   }
-);
 
-document
-  .querySelectorAll(
-    ".card-content__text, .card-content__image, .card-content__number"
-  )
-  .forEach((el) => observer.observe(el));
-
-// SCROLL DOWN
-
-function scrollDown() {
-  const btn = document.getElementById("scrollBtn");
-
-  btn.addEventListener("click", () => {
-    const section = document.getElementById("step-01");
-    section.scrollIntoView({ behavior: "smooth" });
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
   scrollDown();
-});
 
-// SLIDER
-
-document.addEventListener("DOMContentLoaded", () => {
+  // SLIDER
   const sections = [
     { id: "start", item: 0 },
     { id: "step-01", item: 1 },
@@ -189,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     threshold: 0.5,
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const index = sections.findIndex((s) => s.id === entry.target.id);
@@ -204,6 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((s) => {
     const section = document.getElementById(s.id);
-    if (section) observer.observe(section);
+    if (section) sectionObserver.observe(section);
   });
 });
