@@ -215,7 +215,7 @@ body.menu-open .header .icon-menu::after {
           justify-content: space-between;
   gap: 1.5625rem;
   position: fixed;
-  top: 5.6875rem;
+  top: 4.375rem;
   left: -100%;
   width: 100%;
   height: calc(100vh - 5.6875rem);
@@ -229,6 +229,11 @@ body.menu-open .header .icon-menu::after {
   transition: left 0.3s ease;
   z-index: 999;
   overflow: auto;
+}
+@media (min-width: 32em) {
+  .header .menu__body {
+    top: 5.6875rem;
+  }
 }
 body.menu-open .header .menu__body {
   left: 0;

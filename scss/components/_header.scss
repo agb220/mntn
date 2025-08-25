@@ -98,7 +98,7 @@
       justify-content: space-between;
       gap: toRem(25);
       position: fixed;
-      top: toRem(91);
+      top: toRem(70);
       left: -100%;
       width: 100%;
       height: calc(100vh - toRem(91));
@@ -108,6 +108,10 @@
       transition: left 0.3s ease;
       z-index: 999;
       overflow: auto;
+
+      @media (min-width: 32em) {
+        top: toRem(91);
+      }
 
       body.menu-open & {
         left: 0;
