@@ -218,7 +218,7 @@ body.menu-open .header .icon-menu::after {
   top: 4.375rem;
   left: -100%;
   width: 100%;
-  height: calc(100vh - 5.6875rem);
+  height: calc(100vh - 4.375rem);
   background-color: #0b1d26;
   padding: 3.125rem 1.25rem;
   -webkit-box-orient: vertical;
@@ -232,6 +232,7 @@ body.menu-open .header .icon-menu::after {
 }
 @media (min-width: 32em) {
   .header .menu__body {
+    height: calc(100vh - 5.6875rem);
     top: 5.6875rem;
   }
 }

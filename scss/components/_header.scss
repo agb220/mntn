@@ -101,7 +101,7 @@
       top: toRem(70);
       left: -100%;
       width: 100%;
-      height: calc(100vh - toRem(91));
+      height: calc(100vh - toRem(70));
       background-color: $bgMain;
       padding: toRem(50) toRem(20);
       flex-direction: column;
@@ -110,6 +110,7 @@
       overflow: auto;
 
       @media (min-width: 32em) {
+        height: calc(100vh - toRem(91));
         top: toRem(91);
       }
 
