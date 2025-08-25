@@ -424,7 +424,7 @@ body {
 
   &__number--fix-animation {
     &.visible {
-      animation: slideRightOpacity 0.8s ease-out forwards;
+      animation: slideInLeftOpacity 0.8s ease-out forwards;
       animation-delay: 0.2s;
     }
   }
@@ -452,8 +452,12 @@ body {
 
   &__text--fix-animation {
     &.visible {
-      animation: slideInRight 0.8s ease-out forwards;
+      animation: slideInLeft 0.8s ease-out forwards;
       animation-delay: 0.2s;
+
+      @media (min-width: 48em) {
+        animation: slideInRight 0.8s ease-out forwards;
+      }
     }
   }
 
@@ -558,8 +562,12 @@ body {
 
   &__image--fix-animation {
     &.visible {
-      animation: slideInLeft 0.8s ease-out forwards;
+      animation: slideInRight 0.8s ease-out forwards;
       animation-delay: 0.8s;
+
+      @media (min-width: 48em) {
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
     }
   }
 }
@@ -579,10 +587,10 @@ body {
 // .card-content__wrapper--reverse
 
 .card-content__wrapper--reverse {
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   @media (min-width: 48em) {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 }
 
