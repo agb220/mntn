@@ -41,6 +41,13 @@ body {
   padding: 0 15px;
 }
 
+// block scroll
+
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
 // .page-margin
 
 .page-margin {
